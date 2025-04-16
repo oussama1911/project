@@ -10,7 +10,8 @@ const playerSchema = new mongoose.Schema({
         type:Number
     },
     imageUrl: String,
-    category: String
+    
+    category: String,
 });
 
 export default mongoose.model('player', playerSchema);

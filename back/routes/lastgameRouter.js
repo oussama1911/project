@@ -1,5 +1,5 @@
 import express from 'express';
-import Lastgame from '../models/lastgame.js';
+import Lastgame from '../models/lastgames.js';
 
 const router = express.Router();
  
@@ -29,13 +29,12 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const lastgame = new Lastgame(req.body);
-        await lastgame.save()
-        res.status(201).json(lastgame)
+        await lastgame.save();
+        res.status(201).json(lastgame);
     } catch (err) {
-        res.status(500).json({ message: err.message })
+        res.status(500).json({ message: err.message });
     }
 });
-
 
 
 router.put('/:id', async (req, res) => {
@@ -47,7 +46,6 @@ router.put('/:id', async (req, res) => {
         res.status(500).json({ message: err.message })
     }
 });
-
 
 
 router.delete('/:id', async (req, res) => {
